@@ -25,7 +25,7 @@
 }
 
 .card {
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: row;
     border-radius: 15px;
@@ -43,6 +43,34 @@
     background-color: white;
     width: auto;
 }
+
+.tooltip {
+    position: absolute;
+    visibility: hidden;
+}
+
+.tooltip div {
+    background-color: var(--darkGrayishBlue);
+    display: flex;
+    align-items: center;
+    padding: 13px 25px;
+    border-radius: 7px;
+    height: 40px;
+}
+
+/* Tooltip arrow */
+.tooltip div::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--darkGrayishBlue) transparent transparent transparent;
+  }
+
+
 
 .main-image {
     position: relative;
@@ -74,6 +102,7 @@
 
 .share {
     background-color: var(--lightGrayishBlue);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,6 +110,15 @@
     height: 30px;
     width: 30px;
 }
+
+.share>img {
+    fill: red;
+}
+
+.share img:hover {
+    fill:red;
+}
+   
 
 /*Setting styles for images*/
 .main-image>img {
@@ -96,6 +134,11 @@
     display: block;
 
   }
+
+  .tooltip img {
+    margin-left: 15px;
+    height: 100%;
+}
 
 .share>img {
     float: right;
@@ -124,6 +167,11 @@ p {
 
 .date {
     color: var(--grayishBlue);
+}
+
+.tooltip p {
+    font-size:11px;
+    letter-spacing: 3px;
 }
 
 
