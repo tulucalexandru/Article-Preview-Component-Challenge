@@ -128,7 +128,7 @@ p {
 
 
 
-/*Media queries*/
+/*Media queries to  adapt layout for mobile view*/
 @media screen and (max-width: 770px) {
     .card {
       flex-direction: column;
