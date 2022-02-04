@@ -211,7 +211,7 @@ button {
 
 
 /*Media queries to  adapt layout for mobile view*/
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 860px) {
     .card {
       flex-direction: column;
       overflow: hidden;
