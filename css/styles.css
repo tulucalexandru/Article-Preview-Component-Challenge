@@ -21,14 +21,15 @@
     justify-content: center;
     background-color: var(--lightGrayishBlue);
     width: 100%;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 .card {
     /* overflow: hidden; */
+    clip: 1;
     display: flex;
     flex-direction: row;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white;
     max-width: 770px;
     height: 270px;
@@ -36,6 +37,7 @@
 
 .text {
     position: relative;
+    border-radius: 0 10px 10px 0;
     display: flex;
     flex-direction: column;
     align-items: spaced-between;
@@ -46,8 +48,26 @@
 
 .tooltip {
     position: absolute;
+    top: -60px;
+}
+
+.tooltip-mobile {
+    display: none;
+}
+
+.visible {
     visibility: hidden;
 }
+
+/*State when share button is pressed*/
+.svg-fill {
+    fill:white;
+}
+
+.btn-background {
+    background-color: var(--desaturatedDarkBlue);
+}
+
 
 .tooltip div {
     background-color: var(--darkGrayishBlue);
@@ -74,13 +94,15 @@
 
 .main-image {
     position: relative;
-    /* margin-bottom: -14%; */
+    margin-right: -8%;
     /* height: 250px; */
 }
 
 
 .footer {
     position: absolute;
+    text-align: center;
+    bottom: 0;
 }
 
 
@@ -103,6 +125,7 @@
 .share {
     background-color: var(--lightGrayishBlue);
     cursor: pointer;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,6 +146,7 @@
 /*Setting styles for images*/
 .main-image>img {
     display: block;
+    border-radius: 10px 0 0 10px;
     position: relative;
     height: 100%;
 }
@@ -135,12 +159,12 @@
 
   }
 
-  .tooltip img {
+.tooltip img {
     margin-left: 15px;
     height: 100%;
 }
 
-.share>img {
+.share svg path{
     float: right;
     display: block;
 }
@@ -170,31 +194,47 @@ p {
 }
 
 .tooltip p {
-    font-size:11px;
+    font-size:13px;
     letter-spacing: 3px;
+    color: var(--grayishBlue);
 }
 
+
+
+/*Button*/
+button {
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
 
 
 /*Media queries to  adapt layout for mobile view*/
 @media screen and (max-width: 770px) {
     .card {
       flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      border-radius: 15px;
       width: 315px;
       height: auto;
     }
 
     .main-image {
         margin-bottom: -14%;
+        margin-right: 0;
     }
     
     .main-image>img {
         width: 100%;
     }
 
+
     .text {
         position: relative;
         display: flex;
+        border-radius: 0;
         flex-direction: column;
         align-items: spaced-between;
         padding: 15px 29px 0px 29px;
@@ -233,6 +273,49 @@ p {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin: 25px 0;
+        margin: 25px 0 10px 0;
     }
-  }
+
+    .tooltip {
+        display: none;;
+    }
+
+    .tooltip-mobile {
+        position: absolute;
+        /* visibility: hidden; */
+        display: flex;
+        flex-direction: row;
+        bottom: 0;
+        height: 65px;
+        width: 100%;
+        background-color: var(--darkGrayishBlue);
+    }
+
+
+    .tooltip-mobile div {
+        /* display: inline-block; */
+        background-color: var(--darkGrayishBlue);
+        display: flex;
+        align-items: center;
+        padding: 13px 25px;
+    }
+
+
+    .tooltip-mobile div * {
+        margin-right: 20px;
+    }
+
+    .tooltip-mobile p {
+        letter-spacing: 5px;
+        font-weight: 500;
+        color: var(--grayishBlue);
+    }
+
+    .visible {
+        visibility: hidden;
+    }
+
+    #share {
+        z-index: 100;
+    }
+ }
